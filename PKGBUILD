@@ -1,7 +1,7 @@
 # Maintainer: Cole Thompson <cole dot thompson at gmail dot com>
 pkgname=bupper-git
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc="Profile manager for the bup backup system"
 arch=('any')
 url="https://github.com/tobru/bupper"
@@ -12,7 +12,5 @@ source=("$pkgname-$pkgver::git+https://github.com/tobru/bupper.git")
 md5sums=("SKIP")
 
 package() {
-    mkdir -p "$pkgdir/usr/bin"
-    chmod +x "$srcdir/$pkgname-$pkgver/bin/bupper"
-    cp "$srcdir/$pkgname-$pkgver/bin/bupper" "$pkgdir/usr/bin/"
+    install -Dm755 "$srcdir/$pkgname-$pkgver/bin/bupper" "$pkgdir/usr/bin/bupper"
 }
